@@ -66,5 +66,10 @@
     "@types/wheel": "0.0.0",
     "webpack": "^5.70.0",
     "wheel": "^1.0.0"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "wheel": "^1.0.0"
   }
 }

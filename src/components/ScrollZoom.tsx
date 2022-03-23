@@ -1,4 +1,4 @@
-import useDeltaY from "../lib/hooks/useDeltaY";
+import useDeltaY from "@/lib/hooks/useDeltaY";
 import React, { ReactNode, useEffect, useState } from "react";
 
 export default function ScrollZoom({

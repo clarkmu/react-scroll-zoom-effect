@@ -1,5 +1,5 @@
 import React from "react";
-import ScrollZoom from "./components/ScrollZoom";
+import ScrollZoom from "@/components/ScrollZoom";
 
 function App() {
   return (
