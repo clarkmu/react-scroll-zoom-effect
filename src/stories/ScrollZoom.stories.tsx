@@ -50,7 +50,7 @@ stories.add("ScrollZoom Icon", () => {
 stories.add("ScrollZoom List", () => {
   return (
     <div style={{ height: "300vh", width: "100%" }}>
-      {listArray(100).map((index) => (
+      {listArray(20).map((index) => (
         <>
           <ScrollZoom key={index}>
             <div

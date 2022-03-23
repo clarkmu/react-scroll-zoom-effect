@@ -1,6 +1,6 @@
 # React Scroll Zoom Effect
 
-![](icons.gif)
+![](icons.gif) ![](list.gif)
 
 Make your page more dynamic with scroll effects.
 
