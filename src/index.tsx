@@ -1,1 +1,3 @@
-export * from "@/components/ScrollZoom";
+import ScrollZoom from "@/components/ScrollZoom";
+
+export default ScrollZoom;
