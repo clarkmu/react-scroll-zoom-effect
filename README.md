@@ -1,8 +1,15 @@
 # React Scroll Zoom Effect
 
-![](icons.gif) ![](list.gif)
+<img src="./icons.gif" width="49%" height="auto"/> <img src="./list.gif" width="49%" height="auto"/>
 
-Make your page more dynamic with scroll effects.
+## Make your page more dynamic with scroll effects.
+
+Install:
+
+```
+npm install react-scroll-zoom-effect
+yarn add react-scroll-zoom-effect
+```
 
 How to use:
 

@@ -1,22 +1,12 @@
-// export * from "./components/ScrollZoom";
-
-// import React from "react";
-// import ReactDOM from "react-dom";
-// import App from "./App";
-// import reportWebVitals from "./reportWebVitals";
-
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById("root")
-// );
-// reportWebVitals();
-
 import React, { ReactNode, useState, useEffect } from "react";
 import { addWheelListener, removeWheelListener } from "wheel";
 
 function useDeltaY() {
+  /**
+   * @init    const [deltaY] = useDeltaY();
+   *
+   * @returns document.onWheel event.deltaY
+   */
   const [deltaY, setDeltaY] = useState<number>(0);
   const onWheel = (e: WheelEvent) => setDeltaY(e.deltaY);
 

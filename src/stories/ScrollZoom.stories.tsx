@@ -1,6 +1,6 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import ScrollZoom from "../components/ScrollZoom";
+import ScrollZoom from "../";
 
 const stories = storiesOf("Component Test", module);
 

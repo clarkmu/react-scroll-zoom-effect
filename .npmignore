@@ -1,0 +1,3 @@
+*.gif
+.storybook
+src/stories
