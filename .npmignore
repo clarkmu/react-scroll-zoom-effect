@@ -1,3 +1,4 @@
 *.gif
+*.mov
 .storybook
 src/stories
