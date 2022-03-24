@@ -1,6 +1,6 @@
 # React Scroll Zoom Effect
 
-<img src="./icons.gif" width="49%" height="auto"/> <img src="./list.gif" width="49%" height="auto"/>
+<img src="./assets/icons.gif" width="49%" height="auto"/> <img src="./assets/list.gif" width="49%" height="auto"/>
 
 ## Make your page more dynamic with scroll effects.
 
@@ -45,3 +45,8 @@ Notes: Works well with .1~1
 Shrink: boolean\
 Shrink instead of zoom\
 Default: false
+
+Show: boolean\
+Toggle zoom effect on/off\
+Example: only show on dark mode\
+Default: true

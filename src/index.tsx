@@ -24,17 +24,23 @@ export default function ScrollZoom({
   max, // = 1.1,
   min, // = 1.05,
   shrink,
+  show = true,
 }: {
   children: ReactNode;
   scale?: number;
   max?: number;
   min?: number;
   shrink?: boolean;
+  show?: boolean;
 }) {
   const [deltaY] = useDeltaY();
   const [zoom, setZoom] = useState<string | number>("1");
 
   useEffect(() => {
+    if (show === false) {
+      return;
+    }
+
     const useScale: number = Math.abs(250 - scale);
     const scaledAbsoluteValue: number = Math.abs(deltaY / useScale);
 
@@ -62,5 +68,5 @@ export default function ScrollZoom({
   //scale = scale || 100
   // }
 
-  return <div style={{ zoom }}>{children}</div>;
+  return <div style={{ zoom: show === false ? 1 : zoom }}>{children}</div>;
 }

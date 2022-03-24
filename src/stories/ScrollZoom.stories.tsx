@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import { storiesOf } from "@storybook/react";
 import ScrollZoom from "../";
 
@@ -24,23 +24,57 @@ const Icon = () => (
     />
   </svg>
 );
+const Wrapper = ({ children }: { children: ReactNode }) => (
+  <div
+    style={{
+      border: `1px dashed ${randomHex()}`,
+    }}
+  >
+    {children}
+  </div>
+);
+const IconWrapper = ({
+  children = null,
+  style = {},
+}: {
+  children?: ReactNode | null;
+  style?: object;
+}) => (
+  <div
+    style={{
+      width: "5rem",
+      height: "5rem",
+      ...style,
+    }}
+  >
+    {children}
+  </div>
+);
+
+const useSelfTogglingShow = () => {
+  const [show, setShow] = useState(true);
+  const toggleShow = () => {
+    setShow((s) => !s);
+    setTimeout(toggleShow, 3000);
+  };
+  useEffect(toggleShow, []);
+  return [show];
+};
 
 stories.add("ScrollZoom Icon", () => {
   return (
     <div>
       {listArray(10).map((index) => (
         <ScrollZoom key={index}>
-          <div
+          <IconWrapper
             style={{
-              width: "5rem",
-              height: "5rem",
               marginBottom: "2rem",
               background: randomHex(),
               color: "white",
             }}
           >
             <Icon />
-          </div>
+          </IconWrapper>
         </ScrollZoom>
       ))}
     </div>
@@ -53,14 +87,14 @@ stories.add("ScrollZoom List", () => {
       {listArray(20).map((index) => (
         <>
           <ScrollZoom key={index}>
-            <div
+            <IconWrapper
               style={{
-                width: "100%",
+                marginBottom: "2rem",
                 height: "0.5rem",
                 background: randomHex(),
-                marginBottom: "2rem",
+                width: "100%",
               }}
-            ></div>
+            ></IconWrapper>
           </ScrollZoom>
           <div>Lorem Ipsum</div>
         </>
@@ -75,14 +109,14 @@ stories.add("ScrollZoom Scale", () => {
       {listArray(100).map((index) => (
         <>
           <ScrollZoom key={index} scale={index}>
-            <div
+            <IconWrapper
               style={{
-                width: "100%",
+                marginBottom: "2rem",
                 height: "0.5rem",
                 background: randomHex(),
-                marginBottom: "2rem",
+                width: "100%",
               }}
-            ></div>
+            ></IconWrapper>
           </ScrollZoom>
           <div>Lorem Ipsum</div>
         </>
@@ -96,15 +130,9 @@ stories.add("ScrollZoom Max", () => {
     <div>
       {listArray(5).map((index) => (
         <ScrollZoom key={index} max={parseFloat(`1.${index}`)}>
-          <div
-            style={{
-              width: "5rem",
-              height: "5rem",
-              marginBottom: "2rem",
-            }}
-          >
+          <IconWrapper style={{ marginBottom: "2rem" }}>
             <Icon />
-          </div>
+          </IconWrapper>
         </ScrollZoom>
       ))}
     </div>
@@ -116,15 +144,9 @@ stories.add("ScrollZoom Shrink", () => {
     <div>
       {listArray(5).map((index) => (
         <ScrollZoom key={index} shrink>
-          <div
-            style={{
-              width: "5rem",
-              height: "5rem",
-              marginBottom: "2rem",
-            }}
-          >
+          <IconWrapper style={{ marginBottom: "2rem" }}>
             <Icon />
-          </div>
+          </IconWrapper>
         </ScrollZoom>
       ))}
     </div>
@@ -136,17 +158,52 @@ stories.add("ScrollZoom Min", () => {
     <div>
       {listArray(5).map((index) => (
         <ScrollZoom key={index} shrink min={parseFloat(`1.${index}`)}>
-          <div
-            style={{
-              width: "5rem",
-              height: "5rem",
-              marginBottom: "2rem",
-            }}
-          >
+          <IconWrapper style={{ marginBottom: "2rem" }}>
             <Icon />
-          </div>
+          </IconWrapper>
         </ScrollZoom>
       ))}
     </div>
+  );
+});
+
+stories.add("ScrollZoom Show", () => {
+  const [show] = useSelfTogglingShow();
+
+  return (
+    <>
+      <Wrapper>
+        Toggles show on 3 second timer. Current: {show.toString()}
+        <ScrollZoom show={show}>
+          <IconWrapper>
+            <Icon />
+          </IconWrapper>
+        </ScrollZoom>
+      </Wrapper>
+      <Wrapper>
+        Show: false
+        <ScrollZoom show={false}>
+          <IconWrapper>
+            <Icon />
+          </IconWrapper>
+        </ScrollZoom>
+      </Wrapper>
+      <Wrapper>
+        Show: undefined
+        <ScrollZoom>
+          <IconWrapper>
+            <Icon />
+          </IconWrapper>
+        </ScrollZoom>
+      </Wrapper>
+      <Wrapper>
+        Show: true
+        <ScrollZoom show={true}>
+          <IconWrapper>
+            <Icon />
+          </IconWrapper>
+        </ScrollZoom>
+      </Wrapper>
+    </>
   );
 });
