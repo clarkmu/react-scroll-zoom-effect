@@ -50,3 +50,7 @@ Show: boolean\
 Toggle zoom effect on/off\
 Example: only show on dark mode\
 Default: true
+
+### To Do List
+
+- [ ] Test Cross Browser Support
