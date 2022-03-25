@@ -1,9 +1,14 @@
 # React Scroll Zoom Effect
 
-<div style="display: flex; gap: 1vw;">
-<img src="./assets/icons_max_1.1.gif" width="32%" height="250px"/>
-<img src="./assets/icons.gif" width="32%" height="250px"/>
-<img src="./assets/list.gif" width="32%" height="250px"/>
+<div style="display: flex; flex-direction: column; gap: 1vw;">
+    <div style="display: flex; gap: 1vw;">
+        <img src="./assets/list.gif" width="50%" height="350px"/>
+        <img src="./assets/icons.gif" width="50%" height="350px"/>
+    </div>
+    <div style="display: flex; gap: 1vw;">
+        <img src="./assets/with_linear_gradient.gif" width="50%" height="350px"/>
+        <img src="./assets/icons_max_1.1.gif" width="50%" height="350px"/>
+    </div>
 </div>
 
 ## Make your page more dynamic with scroll effects.
