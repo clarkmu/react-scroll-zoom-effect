@@ -28,50 +28,10 @@ How to use:
 </ZoomScroll>
 ```
 
-If you have an image, SVG, etc make sure you contain its size:
-
-```
-<div style={{width: "5rem", height: "5rem"}}>
-    <ZoomScroll>
-        <YourComponent />
-    </ZoomScroll>
-</div>
-```
-
-Example gif 1 uses param max={1.1}\
-Example gifs 2 and 3 use no params
-
-## Params
-
-Sway: boolean\
-Move in direction of scroll\
-Default: false\
-Example: Lists, Dividers , masks , gradients
-
-Shrink: boolean\
-Shrink instead of zoom\
-Default: false
-Example: UI regions
-
-Show: boolean\
-Toggle zoom effect on/off\
-Example: Only show on dark mode\
-Default: true
-
-Max/Min: number\
-TBD\
-Currently # >= 0\
-Default: 0\
-Notes: Works well with 0~0.5
-Ref storybook examples
-
-Scale: number\
-TBD\
-Default: 100
-
 ## Examples
 
-Gradient example from gif above:\
+Icon examples use max={1.1}\
+Gradient example from gif above:
 
 ```
 <div
@@ -92,6 +52,39 @@ Gradient example from gif above:\
     ></ScrollZoom>
 </div>
 ```
+
+## Params
+
+### Sway: boolean
+
+Move with direction of scroll\
+Default: false\
+Example: Lists, Dividers , masks , gradients
+
+### Shrink: boolean
+
+Shrink instead of zoom\
+Default: false
+Example: UI regions
+
+### Show: boolean
+
+Toggle zoom effect on/off\
+Example: Only show on dark mode\
+Default: true
+
+### Max/Min: number
+
+TBD\
+Currently # >= 0\
+Default: 0\
+Notes: Works well with 0~0.5
+Ref storybook examples
+
+### Scale: number
+
+TBD\
+Default: 100
 
 ### To Do List
 
