@@ -38,27 +38,58 @@ Example gifs 2 and 3 use no params
 
 ## Params
 
-Scale: number\
-TBD\
-Currently # >= 0\
-Default: 100
+Sway: boolean\
+Move in direction of scroll\
+Default: false\
+Example: Lists, Dividers , masks , gradients
+
+Shrink: boolean\
+Shrink instead of zoom\
+Default: false
+Example: UI regions
+
+Show: boolean\
+Toggle zoom effect on/off\
+Example: Only show on dark mode\
+Default: true
 
 Max/Min: number\
 TBD\
 Currently # >= 0\
 Default: 0\
-Notes: Works well with 1~2
+Notes: Works well with 0~0.5
+Ref storybook examples
 
-Shrink: boolean\
-Shrink instead of zoom\
-Default: false
+Scale: number\
+TBD\
+Default: 100
 
-Show: boolean\
-Toggle zoom effect on/off\
-Example: only show on dark mode\
-Default: true
+## Examples
+
+Gradient example from gif above:\
+
+```
+<div
+    style={{
+    marginBottom: "2rem",
+    height: "2rem",
+    background: "blue",
+    width: "100%",
+    }}
+>
+    <ScrollZoom
+    scale={200}
+    style={{
+        height: "2rem",
+        background:
+        "linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 75%,rgba(255,255,255,0) 100%)",
+    }}
+    ></ScrollZoom>
+</div>
+```
 
 ### To Do List
 
-- [ ] Test Cross Browser Support
+- [ ] Point CodeSandBox to StoryBook instead of src/index
 - [ ] Export type definitions
+- [ ] Test Cross Browser Support

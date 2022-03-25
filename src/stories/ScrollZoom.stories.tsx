@@ -2,8 +2,6 @@ import React, { ReactNode, useEffect, useState } from "react";
 import { storiesOf } from "@storybook/react";
 import ScrollZoom from "../";
 
-const stories = storiesOf("Component Test", module);
-
 const listArray = (length: number) => Array.from(Array(length).keys());
 const randomHex = () =>
   "#" + ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, "0");
@@ -61,32 +59,57 @@ const useSelfTogglingShow = () => {
   return [show];
 };
 
-stories.add("ScrollZoom Icon", () => {
+const basicViews = storiesOf("Basic Views", module);
+
+basicViews.add("Icon", () => {
   return (
-    <div>
-      {listArray(10).map((index) => (
-        <ScrollZoom key={index}>
-          <IconWrapper
-            style={{
-              marginBottom: "2rem",
-              background: randomHex(),
-              color: "white",
-            }}
-          >
-            <Icon />
-          </IconWrapper>
-        </ScrollZoom>
-      ))}
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      Default
+      <ScrollZoom>
+        <IconWrapper
+          style={{
+            marginBottom: "2rem",
+            background: randomHex(),
+            color: "white",
+          }}
+        >
+          <Icon />
+        </IconWrapper>
+      </ScrollZoom>
+      Shrink
+      <ScrollZoom shrink>
+        <IconWrapper
+          style={{
+            marginBottom: "2rem",
+            background: randomHex(),
+            color: "white",
+          }}
+        >
+          <Icon />
+        </IconWrapper>
+      </ScrollZoom>
+      Sway
+      <ScrollZoom sway>
+        <IconWrapper
+          style={{
+            marginBottom: "2rem",
+            background: randomHex(),
+            color: "white",
+          }}
+        >
+          <Icon />
+        </IconWrapper>
+      </ScrollZoom>
     </div>
   );
 });
 
-stories.add("ScrollZoom List", () => {
+basicViews.add("List", () => {
   return (
-    <div style={{ height: "300vh", width: "100%" }}>
+    <>
       {listArray(20).map((index) => (
         <>
-          <ScrollZoom key={index}>
+          <ScrollZoom key={index} sway>
             <IconWrapper
               style={{
                 marginBottom: "2rem",
@@ -99,13 +122,15 @@ stories.add("ScrollZoom List", () => {
           <div>Lorem Ipsum</div>
         </>
       ))}
-    </div>
+    </>
   );
 });
 
-stories.add("ScrollZoom Scale", () => {
+const paramTests = storiesOf("Param Tests", module);
+
+paramTests.add("Scale", () => {
   return (
-    <div style={{ height: "300vh", width: "100%" }}>
+    <>
       {listArray(100).map((index) => (
         <>
           <ScrollZoom key={index} scale={index}>
@@ -121,53 +146,41 @@ stories.add("ScrollZoom Scale", () => {
           <div>Lorem Ipsum</div>
         </>
       ))}
-    </div>
+    </>
   );
 });
 
-stories.add("ScrollZoom Max", () => {
+paramTests.add("Max", () => {
   return (
-    <div>
-      {listArray(5).map((index) => (
+    <>
+      {listArray(3).map((index) => (
         <ScrollZoom key={index} max={parseFloat(`1.${index}`)}>
           <IconWrapper style={{ marginBottom: "2rem" }}>
             <Icon />
           </IconWrapper>
         </ScrollZoom>
       ))}
-    </div>
+    </>
   );
 });
 
-stories.add("ScrollZoom Shrink", () => {
+paramTests.add("Min", () => {
   return (
-    <div>
-      {listArray(5).map((index) => (
-        <ScrollZoom key={index} shrink>
-          <IconWrapper style={{ marginBottom: "2rem" }}>
-            <Icon />
-          </IconWrapper>
-        </ScrollZoom>
-      ))}
-    </div>
+    <>
+      {listArray(3)
+        .map((index) => (
+          <ScrollZoom key={index} shrink min={1 - index / 10}>
+            <IconWrapper style={{ marginBottom: "2rem" }}>
+              <Icon />
+            </IconWrapper>
+          </ScrollZoom>
+        ))
+        .reverse()}
+    </>
   );
 });
 
-stories.add("ScrollZoom Min", () => {
-  return (
-    <div>
-      {listArray(5).map((index) => (
-        <ScrollZoom key={index} shrink min={parseFloat(`1.${index}`)}>
-          <IconWrapper style={{ marginBottom: "2rem" }}>
-            <Icon />
-          </IconWrapper>
-        </ScrollZoom>
-      ))}
-    </div>
-  );
-});
-
-stories.add("ScrollZoom Show", () => {
+paramTests.add("Show", () => {
   const [show] = useSelfTogglingShow();
 
   return (
@@ -204,6 +217,36 @@ stories.add("ScrollZoom Show", () => {
           </IconWrapper>
         </ScrollZoom>
       </Wrapper>
+    </>
+  );
+});
+
+const examples = storiesOf("Examples", module);
+
+examples.add("List Gradient", () => {
+  return (
+    <>
+      {listArray(5).map((index) => (
+        <IconWrapper
+          key={index}
+          style={{
+            marginBottom: "2rem",
+            height: "2rem",
+            background: randomHex(),
+            width: "100%",
+          }}
+        >
+          <ScrollZoom
+            sway
+            scale={200}
+            style={{
+              height: "2rem",
+              background:
+                "linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 75%,rgba(255,255,255,0) 100%)",
+            }}
+          ></ScrollZoom>
+        </IconWrapper>
+      ))}
     </>
   );
 });

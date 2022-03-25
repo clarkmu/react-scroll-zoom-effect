@@ -19,19 +19,23 @@ function useDeltaY() {
 }
 
 export default function ScrollZoom({
-  children,
+  children = null,
   scale = 100,
   max, // = 1.1,
   min, // = 1.05,
-  shrink,
+  shrink = false,
+  sway = false,
   show = true,
+  style,
 }: {
-  children: ReactNode;
+  children?: ReactNode | null;
   scale?: number;
   max?: number;
   min?: number;
   shrink?: boolean;
+  sway?: boolean;
   show?: boolean;
+  style?: object;
 }) {
   const [deltaY] = useDeltaY();
   const [zoom, setZoom] = useState<string | number>("1");
@@ -41,32 +45,37 @@ export default function ScrollZoom({
       return;
     }
 
+    // if (subtle) {
+    //max = max || 1.08
+    //scale = scale || 100
+    // }
+
     const useScale: number = Math.abs(250 - scale);
-    const scaledAbsoluteValue: number = Math.abs(deltaY / useScale);
+    const scaledAbsoluteValue: number = sway
+      ? deltaY / useScale
+      : Math.abs(deltaY / useScale);
 
     let z = "";
 
-    if (shrink !== true) {
-      z = (1 + scaledAbsoluteValue).toFixed(2);
-    } else {
+    if (shrink) {
       z = (1 - scaledAbsoluteValue).toFixed(2);
+    } else {
+      z = (1 + scaledAbsoluteValue).toFixed(2);
     }
 
     if (max) {
-      if (!shrink) {
-        if (parseFloat(z) > max) {
-          z = max.toString();
-        }
+      if (parseFloat(z) > max) {
+        z = max.toString();
+      }
+    }
+    if (min) {
+      if (parseFloat(z) < min) {
+        z = min.toString();
       }
     }
 
     setZoom(z);
-  }, [deltaY]);
+  }, [deltaY, show]);
 
-  // if (subtle) {
-  //max = max || 1.08
-  //scale = scale || 100
-  // }
-
-  return <div style={{ zoom: show === false ? 1 : zoom }}>{children}</div>;
+  return <div style={{ ...style, zoom: show ? zoom : 1 }}>{children}</div>;
 }

@@ -1,7 +1,7 @@
 {
   "name": "react-scroll-zoom-effect",
   "author": "Michael Clark <clarkmu>",
-  "version": "0.2.7",
+  "version": "0.3.0",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.es.js",
