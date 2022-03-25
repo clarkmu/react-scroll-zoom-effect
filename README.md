@@ -61,3 +61,4 @@ Default: true
 ### To Do List
 
 - [ ] Test Cross Browser Support
+- [ ] Export type definitions
