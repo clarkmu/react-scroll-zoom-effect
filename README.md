@@ -1,6 +1,10 @@
 # React Scroll Zoom Effect
 
-<img src="./assets/icons.gif" width="49%" height="auto"/> <img src="./assets/list.gif" width="49%" height="auto"/>
+<div style="display: flex; gap: 1vw;">
+<img src="./assets/icons_max_1.1.gif" width="32%" height="250px"/>
+<img src="./assets/icons.gif" width="32%" height="250px"/>
+<img src="./assets/list.gif" width="32%" height="250px"/>
+</div>
 
 ## Make your page more dynamic with scroll effects.
 
@@ -29,6 +33,9 @@ If you have an image, SVG, etc make sure you contain its size:
 </div>
 ```
 
+Example gif 1 uses param max={1.1}\
+Example gifs 2 and 3 use no params
+
 ## Params
 
 Scale: number\
@@ -40,7 +47,7 @@ Max/Min: number\
 TBD\
 Currently # >= 0\
 Default: 0\
-Notes: Works well with .1~1
+Notes: Works well with 1~2
 
 Shrink: boolean\
 Shrink instead of zoom\
