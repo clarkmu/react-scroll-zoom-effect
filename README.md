@@ -2,12 +2,12 @@
 
 <div style="display: flex; flex-direction: column; gap: 1vw;">
     <div style="display: flex; gap: 1vw;">
-        <img src="./assets/list.gif" width="50%" height="350px"/>
-        <img src="./assets/icons.gif" width="50%" height="350px"/>
+        <img src="./assets/list.gif" width="45%" height="350px"/>
+        <img src="./assets/icons.gif" width="45%" height="350px"/>
     </div>
     <div style="display: flex; gap: 1vw;">
-        <img src="./assets/with_linear_gradient.gif" width="50%" height="350px"/>
-        <img src="./assets/icons_max_1.1.gif" width="50%" height="350px"/>
+        <img src="./assets/with_linear_gradient.gif" width="45%" height="350px"/>
+        <img src="./assets/icons_max_1.1.gif" width="45%" height="350px"/>
     </div>
 </div>
 
