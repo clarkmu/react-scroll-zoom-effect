@@ -36,10 +36,10 @@ Gradient example from gif above:
 ```
 <div
     style={{
-    marginBottom: "2rem",
-    height: "2rem",
-    background: "blue",
-    width: "100%",
+        marginBottom: "2rem",
+        height: "2rem",
+        background: "blue",
+        width: "100%",
     }}
 >
     <ScrollZoom
